@@ -1,12 +1,12 @@
 {
   "name": "element-height-observer",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "Allows you to add an efficient height listener to any dom element and execute a callback when its height changes",
   "main": "dist/index.min.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc && uglifyjs dist/index.js -m -c -o dist/index.min.js"
+    "build": "tsc && uglifyjs dist/index.js -c -m > dist/index.min.js"
   },
   "repository": "https://github.com/bertyhell/element-height-observer",
   "keywords": [
@@ -19,7 +19,10 @@
     "callback",
     "notify",
     "page",
-    "change"
+    "change",
+    "changed",
+    "mutation",
+    "mutation observer"
   ],
   "author": "Bert Verhelst",
   "license": "MIT",

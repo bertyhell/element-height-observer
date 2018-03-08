@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 function registerHeightObserver(element, callback) {
     var iframe = document.createElement('IFRAME');
     iframe.style.pointerEvents = 'none';
@@ -23,10 +24,12 @@ function registerHeightObserver(element, callback) {
         element.style.position = 'relative';
     }
 }
+exports.registerHeightObserver = registerHeightObserver;
 function unregisterHeightObserver(element) {
     var iframe = element.querySelector('> iframe.element-height-observer-iframe');
     if (iframe) {
         iframe.remove();
     }
 }
+exports.unregisterHeightObserver = unregisterHeightObserver;
 //# sourceMappingURL=index.js.map

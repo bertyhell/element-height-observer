@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "es6",
+    "module": "commonjs",
     "watch": false,
     "skipLibCheck": true,
     "noImplicitAny": true,
@@ -22,11 +22,11 @@
   },
   "exclude": [
     "dist",
-    ".awcache",
-    "./vscode"
+    "./vscode",
+    ".idea"
   ],
   "include": [
     "node_modules/@types/**/*.d.ts",
-    "index.ts"
+    "src/*.ts"
   ]
 }

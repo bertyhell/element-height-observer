@@ -2,7 +2,7 @@
 
 This library allows you to add an observer for page or element height. Each time the page changes height, a callback will be called.
 
-No dependencies, total library minified is less than 700 bytes
+No dependencies, total library minified is less than 0.9 KB
 
 ## Install
 

@@ -1,4 +1,4 @@
-function registerHeightObserver(element: HTMLElement, callback: () => void) {
+export function registerHeightObserver(element: HTMLElement, callback: () => void) {
     let iframe: HTMLIFrameElement = document.createElement('IFRAME') as HTMLIFrameElement;
     iframe.style.pointerEvents = 'none';
     // iframe.style.opacity = '0';
@@ -31,7 +31,7 @@ function registerHeightObserver(element: HTMLElement, callback: () => void) {
     }
 }
 
-function unregisterHeightObserver(element: HTMLElement) {
+export function unregisterHeightObserver(element: HTMLElement) {
     let iframe: HTMLIFrameElement | null = element.querySelector('> iframe.element-height-observer-iframe') as HTMLIFrameElement | null;
     if (iframe) {
         iframe.remove();
