@@ -13,7 +13,7 @@ function registerHeightObserver(element, callback) {
     iframe.style.left = '0';
     iframe.style.border = '0';
     iframe.style.backgroundColor = 'transparent';
-    iframe.setAttribute('class', 'element-height-observer-iframe');
+    iframe.className = 'element-height-observer-iframe';
     iframe.onload = function () {
         iframe.contentWindow.addEventListener('resize', function () {
             callback();
@@ -26,9 +26,11 @@ function registerHeightObserver(element, callback) {
 }
 exports.registerHeightObserver = registerHeightObserver;
 function unregisterHeightObserver(element) {
-    var iframe = element.querySelector('> iframe.element-height-observer-iframe');
-    if (iframe) {
-        iframe.remove();
+    for (var i = element.children.length - 1; i >= 0; i--) {
+        var childElem = element.children.item(i);
+        if (childElem.getAttribute('class') === 'element-height-observer-iframe') {
+            childElem.remove();
+        }
     }
 }
 exports.unregisterHeightObserver = unregisterHeightObserver;
