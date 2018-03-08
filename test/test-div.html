@@ -5,11 +5,15 @@
     <title>Test page</title>
     <script src="../dist/index.min.js"></script>
     <script>
-        window.addEventListener('load', function () {
+        function addHeightListener() {
             registerHeightObserver(document.querySelector('#content'), function () {
                 document.querySelector('#lastResizeDate').textContent = new Date().toISOString();
             })
-        });
+        }
+
+        function removeHeightListener() {
+            unregisterHeightObserver(document.querySelector('#content'));
+        }
 
         function addContent() {
             var li = document.createElement('LI');
@@ -47,6 +51,13 @@
 <body>
 <div>
     <div>last resize date: <span id="lastResizeDate"></span></div>
+    <div>
+        <button onclick="addHeightListener()">Add height listener</button>
+    </div>
+    <div>
+        <button onclick="removeHeightListener()">Remove height listener</button>
+    </div>
+    <br>
     <div>
         <button onclick="addContent()">Add content to the page</button>
     </div>

@@ -18,7 +18,7 @@ export function registerHeightObserver(element: HTMLElement, callback: () => voi
     // iframe.style.boxSizing = 'border-box';
     // iframe.style.width = '20px';
 
-    iframe.setAttribute('class', 'element-height-observer-iframe');
+    iframe.className = 'element-height-observer-iframe';
     iframe.onload = () => {
         iframe.contentWindow.addEventListener('resize', () => {
             callback();
@@ -32,8 +32,10 @@ export function registerHeightObserver(element: HTMLElement, callback: () => voi
 }
 
 export function unregisterHeightObserver(element: HTMLElement) {
-    let iframe: HTMLIFrameElement | null = element.querySelector('> iframe.element-height-observer-iframe') as HTMLIFrameElement | null;
-    if (iframe) {
-        iframe.remove();
+    for (let i = element.children.length - 1; i >= 0; i--) {
+        let childElem: HTMLElement = element.children.item(i) as HTMLElement;
+        if (childElem.getAttribute('class') === 'element-height-observer-iframe') {
+            childElem.remove();
+        }
     }
 }
