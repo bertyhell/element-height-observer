@@ -1,3 +1,4 @@
+"use strict";
 function registerHeightObserver(element, callback) {
     var iframe = document.createElement('IFRAME');
     iframe.style.pointerEvents = 'none';

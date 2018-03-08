@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Test page</title>
-    <script src="index.js"></script>
+    <script src="../dist/index.js"></script>
     <script>
         window.addEventListener('load', function () {
-            registerHeightObserver(document.body, function () {
+            registerHeightObserver(document.querySelector('#content'), function () {
                 document.querySelector('#lastResizeDate').textContent = new Date().toISOString();
             })
         });
@@ -37,6 +37,11 @@
         li {
             font-size: 100px;
         }
+
+        #content {
+            border: 5px solid #666;
+            min-height: 30vh;
+        }
     </style>
 </head>
 <body>
@@ -48,7 +53,7 @@
     <div>
         <button onclick="removeContent()">Remove content to the page</button>
     </div>
-    <div>
+    <div id="content">
         <ul id="contentList">
         </ul>
     </div>

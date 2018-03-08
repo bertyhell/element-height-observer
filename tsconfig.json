@@ -6,9 +6,12 @@
     "noImplicitAny": true,
     "removeComments": true,
     "strictNullChecks": true,
+    "declaration": true,
     "noEmit": false,
     "sourceMap": true,
+    "strict": true,
     "target": "es5",
+    "outDir": "dist",
     "lib": [
       "dom",
       "es6"
