@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "module": "es6",
+    "watch": false,
+    "skipLibCheck": true,
+    "noImplicitAny": true,
+    "removeComments": true,
+    "strictNullChecks": true,
+    "noEmit": false,
+    "sourceMap": true,
+    "target": "es5",
+    "lib": [
+      "dom",
+      "es6"
+    ],
+    "typeRoots": [
+      "node_modules/@types/"
+    ]
+  },
+  "exclude": [
+    "dist",
+    ".awcache",
+    "./vscode"
+  ],
+  "include": [
+    "node_modules/@types/**/*.d.ts",
+    "index.ts"
+  ]
+}
