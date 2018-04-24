@@ -3,6 +3,7 @@
   "version": "0.0.7",
   "description": "Allows you to add an efficient height listener to any dom element and execute a callback when its height changes",
   "main": "dist/index.min.js",
+  "readme": "README.md",
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
