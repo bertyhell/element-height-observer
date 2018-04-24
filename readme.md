@@ -12,7 +12,28 @@ npm install element-height-observer --save
 
 ## Use
 
-When the page has loaded, you can register the oberver like this:
+Load the script:
+```html
+<html>
+    <head>
+        <script src="node_modules/element-height-observer/dist/index.js"></script>
+    </head>
+</html>
+```
+
+Or import it:
+```javascript
+var heightObserver = require('element-height-observer');
+var registerHeightObserver = heightObserver.registerHeightObserver;
+var unregisterHeightObserver = heightObserver.unregisterHeightObserver;
+```
+
+Or import it (ES6 modules notation):
+```javascript
+import { registerHeightObserver, unregisterHeightObserver } from 'element-height-observer';
+```
+
+When the page has loaded, you can register the observer like this:
 
 ```javascript
 window.addEventListener('load', function () {
