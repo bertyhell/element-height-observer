@@ -1,6 +1,6 @@
 {
   "name": "element-height-observer",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Allows you to add an efficient height listener to any dom element and execute a callback when its height changes",
   "main": "dist/index.min.js",
   "readme": "README.md",

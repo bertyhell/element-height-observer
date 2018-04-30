@@ -1,12 +1,34 @@
-export function registerHeightObserver(element: HTMLElement, callback: () => void) {
+export interface IHeightObserverOptions {
+    direction?: 'both' | 'horizontal' | 'vertical';
+}
+
+export function registerHeightObserver(element: HTMLElement, options: IHeightObserverOptions | (() => void), callback?: () => void) {
+    let opts: IHeightObserverOptions;
+    let cbk: () => void;
+    if (!callback) {
+        cbk = options as () => void;
+        opts = {};
+    } else {
+        opts = options as IHeightObserverOptions;
+        cbk = callback;
+    }
     let iframe: HTMLIFrameElement = document.createElement('IFRAME') as HTMLIFrameElement;
     iframe.style.pointerEvents = 'none';
     // iframe.style.opacity = '0';
     iframe.style.position = 'absolute';
     iframe.style.display = 'block';
     iframe.style.overflow = 'auto';
-    iframe.style.height = '100%';
-    iframe.style.width = '0';
+    if (!opts || opts.direction === 'vertical') {
+        iframe.style.height = '100%';
+        iframe.style.width = '0';
+    } else if (opts.direction === 'horizontal') {
+        iframe.style.height = '0';
+        iframe.style.width = '100%';
+    } else {
+        // both
+        iframe.style.height = '100%';
+        iframe.style.width = '100%';
+    }
     iframe.style.top = '0';
     iframe.style.bottom = '0';
     iframe.style.left = '0';
@@ -21,7 +43,7 @@ export function registerHeightObserver(element: HTMLElement, callback: () => voi
     iframe.className = 'element-height-observer-iframe';
     iframe.onload = () => {
         iframe.contentWindow.addEventListener('resize', () => {
-            callback();
+            cbk();
         });
     };
     element.appendChild(iframe);

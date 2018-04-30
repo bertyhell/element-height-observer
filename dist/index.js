@@ -1,13 +1,33 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-function registerHeightObserver(element, callback) {
+function registerHeightObserver(element, options, callback) {
+    var opts;
+    var cbk;
+    if (!callback) {
+        cbk = options;
+        opts = {};
+    }
+    else {
+        opts = options;
+        cbk = callback;
+    }
     var iframe = document.createElement('IFRAME');
     iframe.style.pointerEvents = 'none';
     iframe.style.position = 'absolute';
     iframe.style.display = 'block';
     iframe.style.overflow = 'auto';
-    iframe.style.height = '100%';
-    iframe.style.width = '0';
+    if (!opts || opts.direction === 'vertical') {
+        iframe.style.height = '100%';
+        iframe.style.width = '0';
+    }
+    else if (opts.direction === 'horizontal') {
+        iframe.style.height = '0';
+        iframe.style.width = '100%';
+    }
+    else {
+        iframe.style.height = '100%';
+        iframe.style.width = '100%';
+    }
     iframe.style.top = '0';
     iframe.style.bottom = '0';
     iframe.style.left = '0';
@@ -16,7 +36,7 @@ function registerHeightObserver(element, callback) {
     iframe.className = 'element-height-observer-iframe';
     iframe.onload = function () {
         iframe.contentWindow.addEventListener('resize', function () {
-            callback();
+            cbk();
         });
     };
     element.appendChild(iframe);

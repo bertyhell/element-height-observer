@@ -6,7 +6,7 @@
     <script src="../dist/index.min.js"></script>
     <script>
         function addHeightListener() {
-            registerHeightObserver(document.querySelector('#content'), function () {
+            registerHeightObserver(document.querySelector('#content'), {direction: 'both'}, function () {
                 document.querySelector('#lastResizeDate').textContent = new Date().toISOString();
             })
         }
