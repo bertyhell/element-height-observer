@@ -59,7 +59,9 @@ There are 2 functions available:
 
 The options are optional and can currently only specify which dimension of the element it should watch for:
 ```typescript
-direction: 'horizontal' | 'vertical' | 'both'
+{
+    direction: 'horizontal' | 'vertical' | 'both'
+}
 ```
 The default is 'vertical'
 
