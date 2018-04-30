@@ -51,6 +51,23 @@ var someElement = document.querySelector('#someElementId');
 unregisterHeightObserver(someElement);
 ```
 
+## API
+
+There are 2 functions available:
+* registerHeightObserver(elementToWatch, options?, callback)
+* unregisterHeightObserver(elementToStopWatching)
+
+The options are optional and can currently only specify which dimension of the element it should watch for:
+```typescript
+direction: 'horizontal' | 'vertical' | 'both'
+```
+The default is 'vertical'
+
+The callback doesn't get passed any parameters:
+```typescript
+callback: () => void
+```
+
 ## Inspiration
 
 This library is inspired by [a stackoverflow post](https://stackoverflow.com/a/43081335/373207) by [Jake](https://stackoverflow.com/users/2511031/jake)
